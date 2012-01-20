@@ -25,6 +25,7 @@ include_directories (${SRC_DIR} ${LUA_INCLUDE_DIR})
 find_package (SWIG REQUIRED)
 include (${SWIG_USE_FILE})
 
+set (CMAKE_SWIG_FLAGS "")
 set (CMAKE_SWIG_OUTDIR "swig")
 
 set_source_files_properties (${INTERFACE_SRC} PROPERTIES CPLUSPLUS ON)
