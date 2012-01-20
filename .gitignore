@@ -1,0 +1,10 @@
+*~
+build/temp/*
+CMake*
+cmake*
+!CMakeLists.txt
+Makefile
+.*.swp
+
+
+
