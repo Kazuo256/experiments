@@ -1,5 +1,5 @@
 
-%module test
+%module base
 %{
 #include "vec.h"
 %}

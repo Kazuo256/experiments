@@ -1,9 +1,9 @@
 
-require "test"
+require "base"
 
-local v = test.vec2()
+local v = base.vec2()
 
-v:add(test.vec2(1,2))
+v:add(base.vec2(1,2))
 
 print(v:x(), v:y())
 
