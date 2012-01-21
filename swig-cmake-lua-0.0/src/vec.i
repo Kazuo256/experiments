@@ -9,3 +9,7 @@
 
 %nspace base::vec2;
 
+%wrapper %{
+// HUZZAH
+%}
+
