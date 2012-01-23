@@ -11,6 +11,8 @@ set (SRC
   ${SRC_DIR}/core/vec.cxx
   ${SRC_DIR}/core/vec.h
   ${SRC_DIR}/lua/func.h
+  ${SRC_DIR}/lua/state.cxx
+  ${SRC_DIR}/lua/state.h
 )
 
 set (INTERFACE_SRC
@@ -26,6 +28,7 @@ endif ()
 
 find_package (Boost 1.48.0 REQUIRED)
 if (Boost_FOUND)
+  message ("Boost rootdir: ${Boost_INCLUDE_DIRS}")
   set (INCLUDE_DIRS ${INCLUDE_DIRS} "${Boost_INCLUDE_DIRS}/boost/tr1/tr1" ${Boost_INCLUDE_DIRS})
 else (Boost_FOUND)
   message (FATAL_ERROR "Boost not found.")

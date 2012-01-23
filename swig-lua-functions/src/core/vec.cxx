@@ -1,5 +1,5 @@
 
-#include <vec.h>
+#include <core/vec.h>
 
 namespace base {
 
