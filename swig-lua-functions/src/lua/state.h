@@ -62,7 +62,7 @@ class State {
           State::errormsg("Could not create Lua state.");
     }
 
-    void init ();
+    void loadlibs ();
 
     void pushvalue (int index) { lua_pushvalue(L.get(), index); }
     void pushnil () { lua_pushnil(L.get()); }
@@ -73,13 +73,26 @@ class State {
     void push (void *ptr) { lua_pushlightuserdata(L.get(), ptr); }
     void push (const char* str) { lua_pushstring(L.get(), str); }
     void push (lua_CFunction func, int n = 0) { lua_pushcclosure(L.get(), func, n); }
+
+    bool istable (int index) { return lua_istable(L.get(), index); }
+
+    void pop (int n) { lua_pop(L.get(), n); }
+
+    const char* tostring(int n) { return lua_tostring(L.get(), n); }
+    int type (int n) { return lua_type(L.get(), n); }
     
     void call (int nargs, int nresults) { lua_call(L.get(), nargs, nresults); }
 
     const status tracedcall (int nargs, int nresults) {
-      return report(dotracedcall(nargs, nresults));
+      return dotracedcall(nargs, nresults);
     }
+
+    lua_State* get () { return L.get(); }
+
+    // [-0,+?]
+    const status loadmodule (const char *name, lua_CFunction loader);
     
+    // [-0,+1]
     const status dofile (const char* filename);
 
   private:

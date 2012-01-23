@@ -52,5 +52,6 @@ swig_add_module (base lua ${INTERFACE_SRC} ${SRC})
 add_executable (prog ${SRC} ${swig_generated_sources})
 target_link_libraries (prog ${LUA_LIBRARIES})
 set_target_properties (prog PROPERTIES RUNTIME_OUTPUT_DIRECTORY bin)
+set_target_properties (prog PROPERTIES COMPILE_FLAGS -DSWIG_TYPE_TABLE=112358)
 
 

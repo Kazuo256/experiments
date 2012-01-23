@@ -3,7 +3,6 @@
 
 base = proto
 
-
 local v = base.vec2()
 
 v:add(base.vec2(1,2))
@@ -16,4 +15,9 @@ function ls(t)
   end
 end
 
+print "OOH YEAAAAH"
+
+--ls(base)
+
+print(exported:x(), exported:y())
 

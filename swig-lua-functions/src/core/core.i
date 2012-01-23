@@ -17,7 +17,6 @@
 // HUZZAH
 %}
 
-
 %typemap (in) (func* f) %{
   if (lua_isfunction(L, $input)
 %}
