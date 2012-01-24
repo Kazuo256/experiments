@@ -123,7 +123,5 @@ const status State::dotracedcall (int nargs, int nres) {
   return report(st);
 }
 
-#undef check_init
-
 }
 

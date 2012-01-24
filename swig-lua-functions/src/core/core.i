@@ -4,7 +4,6 @@
 #include <cstdio>
 #include <string>
 
-#define SWIG
 #include "core/vec.h"
 #include "lua/func.h"
 %}
