@@ -1,7 +1,7 @@
 *~
 build/temp/*
 CMake*
-cmake*
+cmake_install*
 !CMakeLists.txt
 Makefile
 .*.swp

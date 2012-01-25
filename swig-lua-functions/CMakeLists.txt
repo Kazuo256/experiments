@@ -38,7 +38,7 @@ include_directories (${INCLUDE_DIRS} ${LUA_INCLUDE_DIR})
 
 find_package (SWIG REQUIRED)
 #include (${SWIG_USE_FILE})
-include (cmake/UseSWIG.cmake)
+include (buildinfo/UseSWIG.cmake)
 
 set (CMAKE_SWIG_FLAGS "")
 set (CMAKE_SWIG_OUTDIR "swig")
