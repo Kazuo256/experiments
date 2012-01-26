@@ -38,8 +38,12 @@ singleton_type<T> singleton_type<T>::ref_;
 
 template <typename T>
 void register_type (T* tp) {
-  puts("HUZZAH");
+  printf("Type [%s] registered.\n",
+      singleton_type<T>::ref().get()->str);
 }
+
+template <typename T>
+T* get_null () { return NULL; }
 
 }
 

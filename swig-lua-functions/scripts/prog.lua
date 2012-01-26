@@ -15,7 +15,7 @@ function ls(t)
   end
 end
 
-print "OOH YEAAAAH"
+print "~~~~~~~~~~~~~~~~~~~"
 
 ls(base)
 

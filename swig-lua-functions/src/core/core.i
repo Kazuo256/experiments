@@ -19,6 +19,7 @@
 }
 %template(register_type_##T) swig::register_type<T>;
 %typemap(in) T* tp;
+%template(get_null_##T) swig::get_null<T>;
 %enddef
 
 
@@ -34,7 +35,7 @@
 for k,v in pairs(proto) do
   m = string.match(k, "register_type_(.+)")
   if m then
-    proto[k](proto[m]())
+    proto[k](proto["get_null_"..m]())
   end
 end
 }

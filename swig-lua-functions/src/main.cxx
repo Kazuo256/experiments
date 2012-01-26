@@ -33,7 +33,7 @@ int main () {
   //swig_type_info *base_vec2 = SWIG_TypeQuery(L.get(), "base::vec2*");
   swig_type_info *base_vec2 = swig::singleton_type<base::vec2>::ref().get();
 
-  puts(base_vec2->str);
+  //puts(base_vec2->str); // if you want to check the type
 
   SWIG_NewPointerObj (
       L.get(),

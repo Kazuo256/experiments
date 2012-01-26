@@ -1,27 +1,9 @@
 
 #ifndef VEC2_H_
 #define VEC2_H_
-/*
-namespace swig {
-  
-template <typename T> class woot {};
-
-}
-
-#ifdef SWIG
-%define swig_class(classname)
-  class classname;
-  %template(woot_##classname) swig::woot<classname>;
-  class classname
-%enddef
-#else
-#define swig_class(classname) class classname
-#endif
-*/
 
 namespace base {
 
-//swig_class(vec2) {
 class vec2 {
   public:
     vec2 (float x = 0.0f, float y = 0.0f) :
@@ -40,12 +22,8 @@ register_class(vec2)
 #endif
 }
 
-inline void duh (base::vec2 *p) {}
-
-//DECLARE_CLASS(rect)
-
-#ifndef SWIG
-# undef swig_class
+#ifdef SWIG
+register_class(rect)
 #endif
 
 class rect {
