@@ -6,9 +6,23 @@
 
 #include "core/vec.h"
 #include "lua/func.h"
+#define SWIG
+#include "swig/type.h"
+#undef SWIG
 %}
 
+%define register_class(T)
+%typemap(in) T* tp {
+  // SUPIMPA MANO
+  swig::singleton_type<$*1_type>::ref().set($1_descriptor);
+  $1 = NULL;
+}
+%template(register_type_##T) swig::register_type<T>;
+%typemap(in) T* tp;
+%enddef
 
+
+%include "swig/type.h"
 %include "core/vec.h"
 %include "lua/func.h"
 
@@ -16,7 +30,12 @@
 // HUZZAH
 %}
 
-%typemap (in) (func* f) %{
-  if (lua_isfunction(L, $input)
-%}
+%luacode {
+for k,v in pairs(proto) do
+  m = string.match(k, "register_type_(.+)")
+  if m then
+    proto[k](proto[m]())
+  end
+end
+}
 

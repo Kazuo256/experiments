@@ -16,7 +16,8 @@ extern int luaopen_proto (lua_State *);
 
 #include <core/vec.h>
 #include <lua/state.h>
-#include <swig/swigluarun.h>
+//#include <swig/swigluarun.h>
+#include <function/caller.h>
 
 
 int main () {
@@ -29,7 +30,10 @@ int main () {
   
   base::vec2 v(1,1);
   //swig_type_info *base_vec2 = SWIG_MangledTypeQuery(L.get(), "_p_base__vec2");
-  swig_type_info *base_vec2 = SWIG_TypeQuery(L.get(), "base::vec2*");
+  //swig_type_info *base_vec2 = SWIG_TypeQuery(L.get(), "base::vec2*");
+  swig_type_info *base_vec2 = swig::singleton_type<base::vec2>::ref().get();
+
+  puts(base_vec2->str);
 
   SWIG_NewPointerObj (
       L.get(),
@@ -39,7 +43,9 @@ int main () {
   );
   lua_setglobal(L.get(), "exported");
 
-  puts(base_vec2->str);
+  function::caller c;
+  std::pair<void*,void*> p = c.call<void,void>(L.get());
+
 
   if (L.dofile("scripts/prog.lua") != lua::status::OK()) {
     return EXIT_FAILURE;

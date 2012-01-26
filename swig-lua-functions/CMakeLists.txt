@@ -13,6 +13,8 @@ set (SRC
   ${SRC_DIR}/lua/func.h
   ${SRC_DIR}/lua/state.cxx
   ${SRC_DIR}/lua/state.h
+  ${SRC_DIR}/function/caller.h
+  ${SRC_DIR}/function/handler.h
 )
 
 set (INTERFACE_SRC

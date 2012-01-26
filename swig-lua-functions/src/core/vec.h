@@ -1,7 +1,7 @@
 
 #ifndef VEC2_H_
 #define VEC2_H_
-
+/*
 namespace swig {
   
 template <typename T> class woot {};
@@ -17,10 +17,12 @@ template <typename T> class woot {};
 #else
 #define swig_class(classname) class classname
 #endif
+*/
 
 namespace base {
 
-swig_class(vec2) {
+//swig_class(vec2) {
+class vec2 {
   public:
     vec2 (float x = 0.0f, float y = 0.0f) :
       x_(x), y_(y) {}
@@ -33,11 +35,12 @@ swig_class(vec2) {
     float x_, y_;
 };
 
-typedef vec2 (*binop_t) (const vec2&, const vec2&);
-
-void exec_binop(binop_t binop, const vec2& lhs, const vec2& rhs);
-
+#ifdef SWIG
+register_class(vec2)
+#endif
 }
+
+inline void duh (base::vec2 *p) {}
 
 //DECLARE_CLASS(rect)
 
