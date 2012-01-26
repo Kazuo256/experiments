@@ -46,7 +46,7 @@ set (CMAKE_SWIG_FLAGS "")
 set (CMAKE_SWIG_OUTDIR "swig")
 
 set_source_files_properties (${INTERFACE_SRC} PROPERTIES CPLUSPLUS ON)
-set_source_files_properties (${INTERFACE_SRC} PROPERTIES SWIG_FLAGS "-includeall")
+set_source_files_properties (${INTERFACE_SRC} PROPERTIES SWIG_FLAGS "")#"-includeall")
 
 swig_add_module (base lua ${INTERFACE_SRC} ${SRC})
 #swig_link_libraries (base ${LUA_LIBRARIES})
